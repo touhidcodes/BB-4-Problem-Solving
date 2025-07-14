@@ -1,5 +1,3 @@
-//  Day-01, 17 September, 2024
-
 // Task-01: Array Filtering and Mapping
 // Create an array of objects, each representing a person with properties like name, age, and gender. Write a function to filter out all females and then map the remaining people to an array of names. Print the final result.
 
@@ -115,15 +113,52 @@ console.log(updatedPeople);
 // 6.Task: Array Reduction
 // Create an array of numbers. Write a function that uses the reduce method to calculate the sum of all even numbers in the array.
 
+const sumEvenNumbers = (numbers: number[]): number =>
+  numbers.reduce((sum, num) => (num % 2 === 0 ? sum + num : sum), 0);
+
+// Example
+const nums = [1, 2, 3, 4, 5, 6];
+console.log(sumEvenNumbers(nums));
+// Output: 12
+
 // 7.   Task: Leap Year Checker
 // Write a function that determines whether a given year is a leap year.
 // Example: Happy New Year
 
+const isLeapYear = (year: number): string =>
+  (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
+    ? "Happy Leap Year!"
+    : "Not a Leap Year";
+
+// Example
+const year = 2024;
+console.log(isLeapYear(year));
+// Output: Happy Leap Year!
+
 // 8. Task: Unique Values
 // Create an array of numbers with some duplicate values. Write a function to filter out the duplicate values and return a new array with only unique numbers. Print the result.
 
+const getUniqueNumbers = (numbers: number[]): number[] =>
+  numbers.reduce((acc: number[], num: number) => {
+    if (!acc.includes(num)) {
+      acc.push(num);
+    }
+    return acc;
+  }, []);
+
+// Example
+const numbersWithDuplicates = [1, 2, 2, 3, 4, 4, 5];
+console.log(getUniqueNumbers(numbersWithDuplicates));
+// Output: [1, 2, 3, 4, 5]
+
 // 09. Task: Find Maximum Value:
 // Write a function that takes an array of numbers and returns the maximum value.
+
+const findMaxValue = (numbers: number[]): number => Math.max(...numbers);
+
+// Example
+const numArray = [10, 25, 7, 42, 18];
+console.log(findMaxValue(numArray)); // Output: 42
 
 // 10.Task: Advanced Sorting
 // Create an array of objects representing students with 'name' and 'grades' properties. Write a function to sort the students by average grade in descending order.
